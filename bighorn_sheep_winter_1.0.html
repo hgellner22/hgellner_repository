@@ -1,0 +1,124 @@
+
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title>Bighorn Sheep Migration Patterns: Winter</title>
+
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+
+<style>
+
+ /*  Legend Style Sheet  */
+    .legend {
+        background-color: #fff;
+        border-radius: 3px;
+        bottom: 30px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        font:
+            12px/20px 'Helvetica Neue',
+            Arial,
+            Helvetica,
+            sans-serif;
+        padding: 10px;
+        position: absolute;
+        right: 10px;
+        z-index: 1;
+    }
+    .legend h4 {
+        margin: 0 0 10px;
+    }
+
+    .legend div span {
+        border-radius: 50%;
+        display: inline-block;
+        height: 10px;
+        margin-right: 5px;
+        width: 10px;
+    }
+    
+    /* Map overlay style sheet  */
+
+    .map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 380px;
+    min-width: 380px;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    }
+    .map-overlay .map-overlay-inner {
+        background-color: #fff;
+        box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .map-overlay h2 {
+        line-height: 24px;
+        display: block;
+        margin: 0 0 10px;
+    }
+    .map-overlay p.credit {
+       margin: 0;
+       padding: 0;
+    }
+
+    /*  Body & Map Style Sheet  */
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; };
+
+</style>
+
+</head>
+
+<body>
+<div id="map"></div>
+
+<div class='map-overlay'> 
+    <div class='map-overlay-inner'>
+        <h2> Bighorn Sheep Relationship: Winter Vs Urban Areas</h2>
+        <p class="credit"> This map shows the relationship between bighorn sheep migration patterns in Colorado in the winter season compared to urban development. </p>
+        
+    </div>
+</div>
+
+
+<div id="bighornsheep-legend" class="legend" style="display: none">
+    <h4>Bighorn Sheep</h4>
+    <div><span style="background-color: #1F66E2"></span>Winter</div>
+    <div><span style="background-color: #000000"></span>Urban</div>
+
+</div>
+
+<script>
+
+     mapboxgl.accessToken = 'pk.eyJ1IjoiaGdlbGxuZXIiLCJhIjoiY203dzZzYnN0MDJleDJsb2p2NmFzNGVobCJ9.2EYv8qEEUEyk2wrdY9KRTw';  //Put your mapbox access token here 
+
+ 
+
+        // Load a new map in the 'map' HTML div 
+
+        var map = new mapboxgl.Map({ 
+
+            container: 'map', // container id 
+
+            style: 'mapbox://styles/hgellner/cma8dtqth009m01siczxg6321/draft', // Put your mapbox style ID here 
+
+            center: [-105.7821, 39.5501], // starting position [lng, lat] 
+
+            zoom: 7 // starting zoom 
+
+        }); 
+
+       // add legend 
+            const BighornSheepLegend = document.getElementById('bighornsheep-legend');
+            BighornSheepLegend.style.display = 'block';
+
+</script>
+
+</body>
+</html>
